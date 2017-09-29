@@ -157,12 +157,12 @@ ReactDOM.render(
 //       );
 //    });
 // }
-function mapeo () {
-  let newAsientos = [];
-  let mapArray = pasajeros.map((asientos ) => {
-    return ()
-  })
-}
+// function mapeo () {
+//   let newAsientos = [];
+//   let mapArray = pasajeros.map((asientos ) => {
+//     return ()
+//   })
+// }
 
 // const App = ({title, seats}) => {
 //    return (
