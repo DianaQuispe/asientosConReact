@@ -1,40 +1,53 @@
 
 let pasajeros =
 [
-  { nombre : 'Diana',
-  apellido: 'Quispe',
+ { nombre : 'Diana',
+ apellido: 'Quispe',
   dni: 1111411,
   asiento: 2,
 },
-{ nombre : 'Diana',
+{ nombre : 'Jose',
 apellido: 'Quispe',
 dni: 1111411,
-asiento: 2,
+asiento: 5,
 },
-{ nombre : 'Diana',
+{ nombre : 'Maria',
 apellido: 'Quispe',
 dni: 1111411,
-asiento: 2,
+asiento: 7,
 },
-{ nombre : 'Diana',
+{ nombre : 'Fernando',
 apellido: 'Quispe',
 dni: 1111411,
-asiento: 2,
+asiento: 9,
 },
-{ nombre : 'Diana',
+{ nombre : 'Nicol',
 apellido: 'Quispe',
 dni: 1111411,
-asiento: 2,
+asiento: 24,
 },
-{ nombre : 'Diana',
+{ nombre : 'Susana',
 apellido: 'Quispe',
 dni: 1111411,
-asiento: 2,
+asiento: 16,
 },
 ]
 
 
 function Reserva(props) {
+
+  let lista = pasajeros.map((value) =>{
+    let numAsiento = value.asiento;
+    console.log(numAsiento);
+    
+    return <div className='listaPasajeros'>
+      <p>NOMBRE :{value.nombre}</p>
+      <p>APELLIDO: {value.apellido}</p>
+      <p>DNI: {value.dni}</p>
+      <p>ASIENTO: {value.asiento}</p>
+
+    </div>
+  } )
   return( <section className="container-fluid">
   <div className="row">
     <div className="col-md-12">
@@ -85,8 +98,15 @@ function Reserva(props) {
         </table>
     </div>
   </div>
-  
+  <div>
+    {lista}
+  </div>
 </section> 
+
+)};
+ReactDOM.render( 
+  <Reserva title="Yo" name="Diana"/>, document.getElementById('root')
+);
 /* <div className="row">
   <div className="col-md-12">
     <div>
@@ -120,10 +140,6 @@ function Reserva(props) {
 </div> */
 
 
-)};
-ReactDOM.render( 
-  <Reserva title="Yo" name="Diana"/>, document.getElementById('root')
-);
 // const RowTable = (props) => {
 //    const _tds =  props.items.map ((item, index) => <td key ={index}> {item} </td>);
 //    return (
