@@ -32,13 +32,17 @@ dni: 1111411,
 asiento: 16,
 },
 ]
-
+function Color(props) {
+  
+}
 
 function Reserva(props) {
-
   let lista = pasajeros.map((value) =>{
     let numAsiento = value.asiento;
-    console.log(numAsiento);
+    console.log( 'asientos:' + numAsiento);
+    if(numAsiento == value.asiento)  {
+      console.log(numAsiento)
+    }
     
     return <div className='listaPasajeros'>
       <p>NOMBRE :{value.nombre}</p>
@@ -48,11 +52,11 @@ function Reserva(props) {
 
     </div>
   } )
-  return( <section className="container-fluid">
-  <div className="row">
-    <div className="col-md-12">
+  return( 
+    <div>  <section className="row">
+    <div >
       <h1>Asientos</h1>
-        <table id="tabla" border="2" align="center" >
+        <table className="col-md-6" id="tabla" border="2" align="center" >
           <tr>
               <td><button>4</button></td>
               <td><button>8</button></td>
@@ -96,112 +100,30 @@ function Reserva(props) {
               <td><button>29</button></td>
           </tr>	
         </table>
-    </div>
-  </div>
-  <div>
-    {lista}
+      <div className='formI text-center col-md-6 '>
+			<b>DNI:</b><input id="buscarInp" type="number"></input>
+         <span class="btn" id="buscarBtn">Buscar</span> 
+				<div>
+					<p><b>ASIENTO:</b> <input id="asiento" type="text"  disabled ></input> </p>
+					<p><b>NOMBRE:</b> <input id="nombre" type="text" ></input> </p>
+					<p><b>APELLIDO: </b><input id="apellido" type="text" ></input> </p>
+					<p><b>DNI: </b><input id="dni" type="number" ></input> </p>
+					<span  className="btn" id="reservar" >RESERVAR</span>
+					<span className="btn" id="cancelar" >CANCELAR</span>
+					<span className="btn" id="listar" >PASAJEROS</span>			
+        </div>
+      </div>
+
+ 
   </div>
 </section> 
+  <div className='col-md-6 col-md-offset-4'>
+  <div>
+  {lista}
+  </div>
+</div>
+</div>
 
 )};
 ReactDOM.render( 
-  <Reserva title="Yo" name="Diana"/>, document.getElementById('root')
-);
-/* <div className="row">
-  <div className="col-md-12">
-    <div>
-      <p><b>DNI:</b><input id="buscarInp" type="number"> <span className="btn" id="buscarBtn">Buscar</span> </input> </p>
-      <div>
-        <p>ASIENTO: <input id="asiento" type="text"  disabled ></input>  </p>
-        <p>NOMBRE: <input id="nombre" type="text" ></input>  </p>
-        <p>APELLIDO: <input id="apellido" type="text" ></input>  </p>
-        <p>DNI: <input id="dni" type="number" ></input> </p>
-        <span  className="btn" id="reservar" >RESERVAR</span>
-        <span className="btn" id="cancelar" >CANCELAR</span>
-        <span className="btn" id="listar" >PASAJEROS</span>			
-
-      </div>
-    </div>
-  </div>
-</div>
-<div className="row">
-  <div className="">
-    <div className="" id="listarDiv">
-      <table className="tablaLi table-bordered" align="center" >
-        <tr>
-          <th>NOMBRE</th>
-          <th>APELLIDO</th>
-          <th>DNI</th>
-          <th>ASIENTO</th>
-        </tr>
-        </table>
-    </div>
-  </div>
-</div> */
-
-
-// const RowTable = (props) => {
-//    const _tds =  props.items.map ((item, index) => <td key ={index}> {item} </td>);
-//    return (
-//       <tr>
-//          {_tds}
-//      </tr> 
-//    )
-// }
-
-// const RTable = ({seats}) => {
-//    return (
-//       <table width="300" border="3" classNameName = "table table-bordered">
-//          <RowTable items = {seats[0]} />
-//          <RowTable items = {seats[1]} />
-//          <RowTable items = {seats[2]} />
-//          <RowTable items = {seats[3]} />
-//       </table>
-//    );
-// }
-
-// function listPairs (seats) {
-//    console.log ("seats: ", seats);
-//    let newSeats = [];
-//    for ( let row  of seats ) {
-//       let filterArray = row.filter ( e => e % 2 == 0);
-//       newSeats.push(filterArray); 
-//    }
-//    return newSeats.map ((row, index) => {
-//       return (
-//          <li key = {index}> {row} </li>
-//       );
-//    });
-// }
-// function mapeo () {
-//   let newAsientos = [];
-//   let mapArray = pasajeros.map((asientos ) => {
-//     return ()
-//   })
-// }
-
-// const App = ({title, seats}) => {
-//    return (
-//       <div>
-//          <RTable  seats = {seats}/>
-       
-//          <h3>  {title}</h3>
-//          <ol>
-//             {listPairs (seats)}
-//          </ol>
-//       </div>
-//    );
-// }
-
-// let seats = [
-//    [4, 8, 12, 16, 20, 24, 28, 32],
-//    [3, 7, 11, 15, 19, 23, 27, 31],
-//    [2, 6, 10, 14, 18, 22, 26, 30],
-//    [1, 5, 9, 13, 17, 21, 25, 29]
-// ]
-
-// ReactDOM.render ( 
-//    <App title = {'Hola Mundo!'}  seats = {seats} />, 
-//    document.getElementById("root")
-// ); 
- 
+  <Reserva title="Yo" name="Diana"/>, document.getElementById('root'));
