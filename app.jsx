@@ -32,12 +32,10 @@ dni: 1111411,
 asiento: 16,
 },
 ]
-function Color(props) {
-  
-}
 
-function Reserva(props) {
-  let lista = pasajeros.map((value) =>{
+function lista(pasajeros) {
+return(
+  pasajeros.map((value) =>{
     let numAsiento = value.asiento;
     console.log( 'asientos:' + numAsiento);
     if(numAsiento == value.asiento)  {
@@ -52,6 +50,10 @@ function Reserva(props) {
 
     </div>
   } )
+)
+}
+
+function Reserva(props) {
   return( 
     <div>  <section className="row">
     <div >
@@ -113,17 +115,15 @@ function Reserva(props) {
 					<span className="btn" id="listar" >PASAJEROS</span>			
         </div>
       </div>
-
- 
   </div>
 </section> 
   <div className='col-md-6 col-md-offset-4'>
   <div>
-  {lista}
+  {lista(props.pasajero)}
   </div>
 </div>
 </div>
 
 )};
 ReactDOM.render( 
-  <Reserva title="Yo" name="Diana"/>, document.getElementById('root'));
+  <Reserva title="RESERVA DE ASIENTOS" pasajero={pasajeros}/>, document.getElementById('root'));
